@@ -32,11 +32,14 @@ interface Props {
 export const Charts: React.FC<Props> = ({ monthlySpending, expenseCategories }) => {
   const options = {
     responsive: true,
+    maintainAspectRatio: true,
     plugins: {
       legend: {
         labels: {
-          color: '#9CA3AF' // text-gray-400
-        }
+          color: '#9CA3AF', // text-gray-400
+          padding: 20
+        },
+        position: 'bottom' as const
       }
     },
     scales: {
@@ -90,14 +93,18 @@ export const Charts: React.FC<Props> = ({ monthlySpending, expenseCategories }) 
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
       <div className="bg-gray-800 rounded-lg shadow-xl p-6">
         <h2 className="text-2xl font-bold mb-4 text-white">Monthly Spending</h2>
-        <Line data={monthlySpendingData} options={options} />
+        <div className="h-[300px] w-full">
+          <Line data={monthlySpendingData} options={options} />
+        </div>
       </div>
       <div className="bg-gray-800 rounded-lg shadow-xl p-6">
         <h2 className="text-2xl font-bold mb-4 text-white">Expense Categories</h2>
-        <Pie data={expenseCategoriesData} options={options} />
+        <div className="h-[300px] w-full">
+          <Pie data={expenseCategoriesData} options={options} />
+        </div>
       </div>
     </div>
   );

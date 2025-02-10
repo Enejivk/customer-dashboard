@@ -20,7 +20,7 @@ export const FinancialSummary: React.FC<Props> = ({ transactions }) => {
   return (
     <div className="bg-gray-800 rounded-lg shadow-xl p-6 mb-6">
       <h2 className="text-2xl font-bold mb-4 text-white">Financial Summary</h2>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-gray-900/50 rounded-lg p-4 border border-blue-900/20">
           <div className="flex items-center gap-2 mb-2">
             <DollarSign className="w-5 h-5 text-blue-400" />
